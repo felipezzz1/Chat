@@ -109,6 +109,13 @@ function ChatRoom() {
             displayName: auth.currentUser.displayName,
         });
 
+        setFormValue("");
+        dummy.current.scrollIntoView({ behavior: "smooth" });
+    };
+
+    const isOnline = async e => {
+        e.preventDefault();
+
         if (SignIn) {
             await messagesRefEntrou.add({
                 text: `${auth.currentUser.displayName} entrou no chat.`,
@@ -116,6 +123,13 @@ function ChatRoom() {
                 system: true,
             });
         }
+
+        setFormValue("");
+        dummy.current.scrollIntoView({ behavior: "smooth" });
+    };
+
+    const isOffline = async e => {
+        e.preventDefault();
 
         if ((auth.currentUser.status = "offline")) {
             await messagesRefSaiu.add({
@@ -140,6 +154,10 @@ function ChatRoom() {
 
                 <span ref={dummy}></span>
             </main>
+
+            <form onSubmit={isOnline}></form>
+
+            <form onSubmit={isOffline}></form>
 
             <form onSubmit={sendMessage}>
                 <input

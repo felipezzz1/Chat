@@ -154,5 +154,7 @@ img {
 }
 
 .message-user{
-  font-size: 10px;
+  color: white;
+  font-size: 15px;
+  padding: 0.6em;
 }
